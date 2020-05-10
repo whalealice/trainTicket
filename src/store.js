@@ -3,18 +3,19 @@ import thunk from 'redux-thunk'
 import { order } from './components/Order'
 import { query } from './components/Query'
 import { ticket } from './components/Ticket'
-import { journey } from './components/Journey'
+import { train_Journey } from './components/Journey'
 // 生成一个整体的reducer函数
 const reducers = combineReducers({
   order,
   query,
   ticket,
-  journey,
+  train_Journey,
 })
 // 创建store,thunk中间件支持异步action
 const store = createStore(reducers, applyMiddleware(thunk))
-export default store  
-
+export default store
+ 
+// 每个文件一个store的时候这么用
 // export default createStore(
 //   combineReducers(reducers),
 //   {

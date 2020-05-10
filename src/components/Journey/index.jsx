@@ -1,4 +1,4 @@
 import Journey from './component'
-import journey from './state/reducer'
+import train_Journey from './state/reducer'
 
-export { Journey, journey }
+export { Journey, train_Journey }
