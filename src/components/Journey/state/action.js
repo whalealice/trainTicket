@@ -29,7 +29,7 @@ export function showCitySelector(currentSelectingLeftCity) {
             type: ACTION_SET_IS_CITY_SELECTOR_VISIBLE,
             payload: true,
         });
-
+        console.log('4444',currentSelectingLeftCity)
         dispatch({
             type: ACTION_SET_CURRENT_SELECTING_LEFT_CITY,
             payload: currentSelectingLeftCity,
@@ -104,8 +104,7 @@ export function fetchCityData() {
 // 城市选择选择
 export function setSelectedCity(city) {
     return (dispatch, getState) => {
-        const { currentSelectingLeftCity } = getState();
-
+        const { currentSelectingLeftCity } = getState().train_Journey.toJS();
         if (currentSelectingLeftCity) { // 左边
             dispatch({
                 type: ACTION_SET_FROM,
@@ -117,6 +116,6 @@ export function setSelectedCity(city) {
                 payload: city,
             });
         }
-        hideCitySelector()
+        dispatch( hideCitySelector())
     };
 }

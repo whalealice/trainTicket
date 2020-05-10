@@ -14,7 +14,7 @@ import {
     showCitySelector,
     hideCitySelector,
     fetchCityData,
-    // setSelectedCity,
+    setSelectedCity,
     // showDateSelector,
     // hideDateSelector,
     // setDepartDate,
@@ -38,8 +38,8 @@ function JourneyWrap (props){
         showCitySelector,
         fetchCityData,
         hideCitySelector,
+        setSelectedCity,
     } = props
-    console.log('index', isCitySelectorVisible)
     const onBack = useCallback(() => {
         // window.history.back();
     }, []);
@@ -65,6 +65,7 @@ function JourneyWrap (props){
                 isLoading={isLoadingCityData}
                 fetchCityData={fetchCityData}
                 hideCitySelector={hideCitySelector}
+                onSelect={setSelectedCity}
             />
        
     </div>
@@ -87,6 +88,7 @@ const mapDispatchToProps = (dispatch) => {
         showCitySelector,
         fetchCityData,
         hideCitySelector,
+        setSelectedCity,
     }
     return { ...bindActionCreators(methods, dispatch) }
 }

@@ -1,14 +1,14 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { order } from './components/Order'
-import { query } from './components/Query'
-import { ticket } from './components/Ticket'
+// import { order } from './components/Order'
+// import { query } from './components/Query'
+// import { ticket } from './components/Ticket'
 import { train_Journey } from './components/Journey'
 // 生成一个整体的reducer函数
 const reducers = combineReducers({
-  order,
-  query,
-  ticket,
+  // order,
+  // query,
+  // ticket,
   train_Journey,
 })
 // 创建store,thunk中间件支持异步action

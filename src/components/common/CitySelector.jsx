@@ -12,12 +12,12 @@ import './CitySelector.css';
 const CityItem = memo(function CityItem(props) {
     const {
         name,
-        // onSelect,
+        onSelect,
     } = props;
 
     return (
         <li className="city-li" 
-        // onClick={() => onSelect(name)}
+        onClick={() => onSelect(name)}
         >
             { name }
         </li>
@@ -26,14 +26,14 @@ const CityItem = memo(function CityItem(props) {
 
 CityItem.propTypes = {
     name: PropTypes.string.isRequired,
-    // onSelect: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 const CitySection = memo(function CitySection(props) {
     const {
         title,
         cities = [],
-        // onSelect,
+        onSelect,
     } = props;
 
     return (
@@ -47,7 +47,7 @@ const CitySection = memo(function CitySection(props) {
                         <CityItem
                             key={city.value}
                             name={city.label}
-                            // onSelect={onSelect}
+                            onSelect={onSelect}
                         />
                     );
                 })
@@ -59,7 +59,7 @@ const CitySection = memo(function CitySection(props) {
 CitySection.propTypes = {
     title: PropTypes.string.isRequired,
     cities: PropTypes.array,
-    // onSelect: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 const AlphaIndex = memo(function AlphaIndex(props) {
@@ -88,7 +88,7 @@ const CityList = memo(function CityList(props) {
     const {
         sections,
         toAlpha,
-        // onSelect,
+        onSelect,
     } = props;
 
     return (
@@ -101,7 +101,7 @@ const CityList = memo(function CityList(props) {
                                 key={section.value}
                                 title={section.label}
                                 cities={section.children}
-                                // onSelect={onSelect}
+                                onSelect={onSelect}
                             />
                         );
                     })
@@ -125,7 +125,7 @@ const CityList = memo(function CityList(props) {
 
 CityList.propTypes = {
     sections: PropTypes.array.isRequired,
-    // onSelect: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
     toAlpha: PropTypes.func.isRequired,
 };
 
@@ -211,7 +211,7 @@ const CitySelector = memo(function CitySelector(props) {
         isLoading,
         fetchCityData,
         hideCitySelector,
-        // onSelect,
+        onSelect,
     } = props;
 
     const [searchKey, setSearchKey] = useState('');
@@ -239,7 +239,7 @@ const CitySelector = memo(function CitySelector(props) {
             return (
                 <CityList
                     sections={cityData}
-                    // onSelect={onSelect}
+                    onSelect={onSelect}
                     toAlpha={toAlpha}
                 />
             );
@@ -282,7 +282,7 @@ const CitySelector = memo(function CitySelector(props) {
                 Boolean(key) && (
                     <Suggest
                         searchKey={key}
-                        // onSelect={key => onSelect(key)}
+                        onSelect={key => onSelect(key)}
                     />
                 )
             }
@@ -297,7 +297,7 @@ CitySelector.propTypes = {
     isLoading: PropTypes.bool.isRequired,
     hideCitySelector: PropTypes.func.isRequired,
     fetchCityData: PropTypes.func.isRequired,
-    // onSelect: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 };
 
 export default CitySelector;
