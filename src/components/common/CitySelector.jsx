@@ -12,11 +12,13 @@ import './CitySelector.css';
 const CityItem = memo(function CityItem(props) {
     const {
         name,
-        onSelect,
+        // onSelect,
     } = props;
 
     return (
-        <li className="city-li" onClick={() => onSelect(name)}>
+        <li className="city-li" 
+        // onClick={() => onSelect(name)}
+        >
             { name }
         </li>
     );
@@ -24,7 +26,7 @@ const CityItem = memo(function CityItem(props) {
 
 CityItem.propTypes = {
     name: PropTypes.string.isRequired,
-    onSelect: PropTypes.func.isRequired,
+    // onSelect: PropTypes.func.isRequired,
 };
 
 const CitySection = memo(function CitySection(props) {
@@ -207,8 +209,8 @@ const CitySelector = memo(function CitySelector(props) {
         show,
         cityData,
         isLoading,
-        // onBack,
         fetchCityData,
+        hideCitySelector,
         // onSelect,
     } = props;
 
@@ -249,7 +251,7 @@ const CitySelector = memo(function CitySelector(props) {
     return (
         <div className={classnames('city-selector', {hidden: !show})}>
             <div className="city-search">
-                <div className="search-back">
+                <div className="search-back" onClick={()=>{hideCitySelector()}}>
                     <svg width="42" height="42">
                         <polyline
                             points="25,13 16,21 25,29"
@@ -262,7 +264,7 @@ const CitySelector = memo(function CitySelector(props) {
                 <div className="search-input-wrapper">
                     <input
                         type="text"
-                        // value={searchKey}
+                        value={searchKey}
                         className="search-input"
                         placeholder="城市、车站的中文或拼音"
                         onChange={e => setSearchKey(e.target.value)}
@@ -293,7 +295,7 @@ CitySelector.propTypes = {
     show: PropTypes.bool.isRequired,
     cityData: PropTypes.array,
     isLoading: PropTypes.bool.isRequired,
-    // onBack: PropTypes.func.isRequired,
+    hideCitySelector: PropTypes.func.isRequired,
     fetchCityData: PropTypes.func.isRequired,
     // onSelect: PropTypes.func.isRequired,
 };

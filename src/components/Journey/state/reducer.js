@@ -1,6 +1,7 @@
 import Immutable from 'immutable'
 import {
-    ACTION_CHANGE_FROM_TO,
+    ACTION_SET_FROM,
+    ACTION_SET_TO,
     ACTION_SET_IS_CITY_SELECTOR_VISIBLE,
     ACTION_SET_CITY_DATA,
     ACTION_SET_IS_LOADING_CITY_DATA,
@@ -20,10 +21,12 @@ const createInitialState = () => {
 }
 export default function reducer(state = createInitialState(), action) {
     switch (action.type) {
-        case ACTION_CHANGE_FROM_TO:
+        case ACTION_SET_FROM:
             return state.set('from', action.payload.from)
-                .set('to', action.payload.to)
+        case ACTION_SET_TO:
+            return state.set('to', action.payload.to)
         case ACTION_SET_IS_CITY_SELECTOR_VISIBLE:
+            console.log('222',action.payload)
             return state.set('isCitySelectorVisible', action.payload)
         case ACTION_SET_CITY_DATA: 
             return state.set('cityData', action.payload)

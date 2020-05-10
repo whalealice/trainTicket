@@ -9,15 +9,10 @@ import * as serviceWorker from './serviceWorker';
 import Store from './store'
 import Router from './router'
 
-const request = axios.create({
-  // baseURL: process.env.BASE_URL,
-  timeout: 5000
-});
+
 // 添加响应拦截
-request.interceptors.response.use(
-  
+axios.interceptors.response.use(
   response => {
-    console.log('2222')
     // 直接返回response.data
     return response.data;
   },

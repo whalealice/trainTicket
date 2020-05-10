@@ -12,7 +12,7 @@ import CitySelector from '../../common/CitySelector'
 import {
     exchangeFromTo,
     showCitySelector,
-    // hideCitySelector,
+    hideCitySelector,
     fetchCityData,
     // setSelectedCity,
     // showDateSelector,
@@ -37,8 +37,9 @@ function JourneyWrap (props){
         exchangeFromTo,
         showCitySelector,
         fetchCityData,
+        hideCitySelector,
     } = props
-    console.log('index', props)
+    console.log('index', isCitySelectorVisible)
     const onBack = useCallback(() => {
         // window.history.back();
     }, []);
@@ -63,7 +64,7 @@ function JourneyWrap (props){
                 cityData={cityData}
                 isLoading={isLoadingCityData}
                 fetchCityData={fetchCityData}
-                // {...citySelectorCbs}
+                hideCitySelector={hideCitySelector}
             />
        
     </div>
@@ -85,6 +86,7 @@ const mapDispatchToProps = (dispatch) => {
         exchangeFromTo,
         showCitySelector,
         fetchCityData,
+        hideCitySelector,
     }
     return { ...bindActionCreators(methods, dispatch) }
 }
